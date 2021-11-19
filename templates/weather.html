@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+ <!-- Setup -->
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Weather App</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.css" />
+  <link rel= "stylesheet" href= "{{ url_for('static',filename='styles/card.css') }}">
+</head>
+<!-- Top Header -->
+<body>
+  <section class="hero is-primary">
+    <div class="hero-body">
+      <div class="container">
+        <h4 class="title">
+          Weather App - Search any City
+        </h4>
+      </div>
+    </div>
+  </section>
+<!-- Search Bar-->
+  <section class="section">
+    <div class="container">
+      <div class="columns">
+        <div class="column is-offset-4 is-4">
+          <form method="POST">
+            <div class="field has-addons">
+              <div class="control is-expanded">
+                <input class="input" name="city" type="text" placeholder="City Name">
+              </div>
+              <div class="control">
+                <button class="button is-info">
+                  Search City
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- partial:index.partial.html -->
+  <section class = "card"
+  <div class="card">
+          <h2>{{ weather.city }}</h2>
+          <h3>{{ weather.description }}</h3>
+          <h2><strong>{{ weather.temperature }}°F</strong></h2>
+          <!-- <div class="sky">
+              <div class="sun"></div>
+              <div class="cloud">
+                  <div class="circle-small"></div>
+                  <div class="circle-tall"></div>
+                  <div class="circle-medium"></div>
+              </div>
+          </div> -->
+          <figure class="image is-50x50">
+            <img src="http://openweathermap.org/img/w/{{ weather.icon }}.png" alt="Image">
+          </figure>
+          <h5>Temp. Trend: (Days from Today)</h5>
+          <table>
+              <tr>
+                  <td>1 </td>
+                  <td>2 </td>
+                  <td>3 </td>
+                  <td>4 </td>
+                  <td>5 </td>
+              </tr>
+              <tr>
+                  <td>{{ weather.day1 }}°</td>
+                  <td>{{ weather.day2 }}°</td>
+                  <td>{{ weather.day3 }}°</td>
+                  <td>{{ weather.day4 }}°</td>
+                  <td>{{ weather.day5 }}°</td>
+              </tr>
+          </table>
+      </div>
+  <!-- partial -->
+  </body>
+
+</html>
