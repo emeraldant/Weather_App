@@ -16,8 +16,8 @@ def index():
             db.session.add (queryCityObj)
             db.session.commit()
     cities = City.query.all()
-    urlCurrent = 'http://api.openweathermap.org/data/2.5/weather?q={}&appid={}&units=imperial'
-    urlTrend = 'http://api.openweathermap.org/data/2.5/forecast?q={}&appid={}&units=imperial'
+    urlCurrent = 'http://api.openweathermap.org/data/2.5/weather?q={}&appid=d97f97692b2c1b089aeb09c420503ae0&units=imperial'
+    urlTrend = 'http://api.openweathermap.org/data/2.5/forecast?q={}&appid=d97f97692b2c1b089aeb09c420503ae0&units=imperial'
     weather_data = []
     for city in cities:
         curr = requests.get(urlCurrent.format(city.name)).json()
